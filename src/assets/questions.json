@@ -1,0 +1,50 @@
+{
+    "questions": [
+        {
+        "questionText": "Wybierz A?",
+        "options": [
+        {
+            "text": "A",
+            "correct": true
+        },
+        {
+            "text": "B"
+        },
+        {
+            "text": "C"
+        }
+    ]
+    },
+    {
+    "questionText": "Wybierz B?",
+    "options": [
+
+        {
+            "text": "A"
+        },
+        {
+            "text": "B"
+        },
+        {
+            "text": "C",
+            "correct": true
+        }
+    ]
+    },
+    {
+    "questionText": "Wybierz C?",
+    "options": [
+        {
+            "text": "A"
+        },
+        {
+            "text": "B",
+            "correct": true
+        },
+        {
+            "text": "C"
+        }
+    ]
+    }
+]
+}

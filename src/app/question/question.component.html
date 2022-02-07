@@ -1,0 +1,65 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+            <div class="image">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/330px-React-icon.svg.png" width="100" alt="react logo"/>
+            </div>
+            <div class="quiz-header">
+                <h4>ReactJS Quiz</h4>
+                <span>Welcome {{name}}</span>
+            </div>
+        </div>
+        <ng-container *ngIf="!endQuiz">
+            <div class="d-flex justify-content-around py-3">
+                <div class="question-remain">
+                    <span>Question {{currentQuestion + 1}} of {{questionList.length}}</span>
+                </div>
+                <div class="timer">
+                   <h5>{{mins}}:{{sec}}</h5>
+                </div>
+            </div>
+            <div class="question">
+                <div class="card">
+                    <h3>{{questionList[currentQuestion]?.questionText}}</h3>
+                </div>
+            </div>
+            <div class="options">
+                <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                    <li (click)="setAnswer(currentQuestion+1, option)">
+                        <div appChangeBg = "options" class="card">
+                            {{option.text}}
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button [disabled] = "currentQuestion === 0" class="btn btn-primary" type="submit" (click)="prevQuestion()">Prev</button>
+                <a routerLink="/" type = "button" class="btn btn-outline-secondary">Home</a>
+                <button class="btn btn-primary" type="submit" (click)="nextQuestion()">Next</button>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="endQuiz">
+            <div class = "row d-flex justify-content-between">
+                <ng-container *ngIf="scoreOne">
+                    <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://i1.memy.pl/obrazki/3634298578_jak_to_.jpg"/>
+                </ng-container>
+                <ng-container *ngIf="scoreTwo">
+                    <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://d-art.ppstatic.pl/kadry/k/r/1/4f/4a/5bb1aee6948f5_o_large.jpg"/>
+                </ng-container>
+                <ng-container *ngIf="scoreThree">
+                    <img style="width: 50%;" class="img-fluid col-sm-12 mx-auto" src="https://c.tenor.com/Fq94srD2goQAAAAd/zony-rakieta.gif"/>
+                </ng-container>
+                <div class="result text-center col-md-6 col-sm-12">
+                    <h3>You have completed the quiz. <br/>
+                        Below is your result:
+                    </h3>
+                    <p>Number of question: {{questionList.length}}</p>
+                    <p>Total Correct Answered: {{correctAnswer}}</p>
+                    <p>Total Wrong Answered: {{inCorrectAnswer}}</p>
+                    <p>Your Points: {{points}}</p>
+                    <h1> {{scorePrecent}}%</h1>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>

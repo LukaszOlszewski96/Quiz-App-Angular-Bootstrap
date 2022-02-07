@@ -1,0 +1,16 @@
+<div class="container bg-light py-5">
+    <h1 class="display-5 fw-bold">Welcome in App</h1>
+    <p class="col-md-8 fs-4">The quiz contains 3 questions. Each question is for 1 point.</p>
+    <h4>Rules:</h4>
+    <ul>
+        <li>Max 3 points</li>
+        <li>You have 5 min for answer</li>
+        <li>Exceeded time ends the test</li>
+        <li>Back to home reset Quiz</li>
+    </ul>
+    <div class="name col-md-4 my-3">
+        <label class="name col-md-4 my-3">Enter your name:</label>
+        <input #name type="text" class="form-control"/>
+    </div>
+    <button type="button" class="btn btn-outline-primary" routerLink="/question" (click)="startQuiz()">Start Quiz</button>
+</div>
